@@ -6,4 +6,29 @@
  */
 export function trimSymbols(string, size) {
 
+    if (!string) return ''
+    if (size === undefined) return string
+    if (size <= 0) return ''
+
+    const chars = string.split('')
+    let result = []
+    let count = 1
+    let currentChar = chars[0]
+
+    result.push(currentChar)
+
+    for (let i = 1; i < chars.length; i++) {
+        if (chars[i] === currentChar) {
+            count++
+            if (count <= size) {
+                result.push(chars[i])
+            }
+        } else {
+            count = 1
+            currentChar = chars[i]
+            result.push(chars[i])
+        }
+    }
+
+    return result.join('')
 }
