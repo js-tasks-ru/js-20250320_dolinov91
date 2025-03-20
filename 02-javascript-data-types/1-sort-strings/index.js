@@ -7,8 +7,7 @@
 export function sortStrings(arr, param = 'asc', language = 'en') {
     const sortedArray = [...arr]
     return sortedArray.sort((a, b) => {
-        const isRussian = (str) => /[ЁА-яё]/.test(str)
-        const locale = language === 'ru' || (isRussian(a) && isRussian(b)) ? 'ru-RU' : 'en-US'
+        const locale = ['ru-RU', 'en-US']
         const compare = a.localeCompare(b, locale, { sensitivity: 'variant', caseFirst: 'upper' })
         if (compare !== 0) return param === 'asc' ? compare : param === 'desc' ? -compare : 0
         const isAUpper = a === a.toUpperCase()
