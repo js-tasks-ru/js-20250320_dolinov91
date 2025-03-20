@@ -10,9 +10,7 @@ export function createGetter(path) {
         let current = obj
 
         for (let prop of props) {
-            if (current &&
-                typeof current === 'object' &&
-                current.hasOwnProperty(prop)) {
+            if (current?.hasOwnProperty(prop)) {
                 current = current[prop]
             } else {
                 return undefined
