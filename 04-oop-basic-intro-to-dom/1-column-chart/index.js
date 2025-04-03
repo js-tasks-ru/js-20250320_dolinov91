@@ -20,9 +20,7 @@ export default class ColumnChart {
         <div class="column-chart__container">
           <div class="column-chart__header">${this.formatHeading(this.value)}</div>
           <div class="column-chart__chart">
-            ${this.data.length === 0 ? 
-              '<img src="./charts-skeleton.svg" alt="Loading skeleton" />' : 
-              this.renderChartBars()}
+            ${this.data.length > 0 ? this.renderChartBars() : ''}
           </div>
         </div>
       `
@@ -49,7 +47,7 @@ export default class ColumnChart {
       container.innerHTML = `
         <div class="column-chart__header">${this.formatHeading(this.value)}</div>
         <div class="column-chart__chart">
-          ${hasData ? this.renderChartBars() : '<img src="./charts-skeleton.svg" alt="Loading skeleton" />'}
+          ${hasData ? this.renderChartBars() : ''}
         </div>
       `
     }
@@ -62,6 +60,5 @@ export default class ColumnChart {
   
     destroy() {
       this.remove()
-      this.element = null
     }
-  }
+}
