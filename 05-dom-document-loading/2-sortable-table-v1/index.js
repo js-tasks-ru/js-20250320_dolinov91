@@ -129,37 +129,9 @@ export default class SortableTable {
       }
   }
 
-  handleHeaderClick = (event) => {
-      const headerCell = event.target.closest('.sortable-table__cell[data-sortable="true"]')
-      if (!headerCell) {
-          return
-      }
-      const fieldId = headerCell.dataset.id
-      const currentOrder = headerCell.dataset.order
-      const newOrder = (currentOrder === 'desc') ? 'asc' : 'desc'
-      this.sort(fieldId, newOrder)
-  }
-
-  addEventListeners() {
-      this.subElements.header.addEventListener('click', this.handleHeaderClick)
-  }
-
-  removeEventListeners() {
-      if (this.subElements.header) {
-          this.subElements.header.removeEventListener('click', this.handleHeaderClick)
-      }
-  }
-
   destroy() {
-      this.removeEventListeners()
       if (this.element) {
           this.element.remove()
       }
-      this.element = null
-      this.subElements = {}
-      this.config = []
-      this.data = []
-      this.sortedField = null
-      this.sortedOrder = null
   }
 }
