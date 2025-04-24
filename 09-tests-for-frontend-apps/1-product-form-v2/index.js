@@ -2,10 +2,7 @@ import SortableList from '../2-sortable-list/index.js';
 import ProductForm from '../../08-forms-fetch-api-part-2/1-product-form-v1/index.js';
 
 export default class ProductFormV2 extends ProductForm {
-  constructor(productId) {
-    super(productId)
-  }
-
+  
   renderImagesList(images = []) {
     const items = images.map(image => this.getImageItem(image))
     
@@ -24,9 +21,6 @@ export default class ProductFormV2 extends ProductForm {
 
   initEventListeners() {
     super.initEventListeners()
-    if (this.subElements.imageListContainer) {
-      this.subElements.imageListContainer.removeEventListener('click', this.onImageDelete)
-    }
   }
 
   onUploadImage = () => {
