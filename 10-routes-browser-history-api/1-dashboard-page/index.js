@@ -107,7 +107,7 @@ export default class Page {
   }
   
   async updateComponents(from, to) {
-    const { rangePicker, ordersChart, salesChart, customersChart, sortableTable } = this.components
+    const { ordersChart, salesChart, customersChart, sortableTable } = this.components
     ordersChart.update(from, to)
     salesChart.update(from, to)
     customersChart.update(from, to)
